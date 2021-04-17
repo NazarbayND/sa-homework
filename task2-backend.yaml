@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: nursultannd/backend:3
+          image: nursultannd/backend:4
           ports:
             - containerPort: 3001
 ---
@@ -25,9 +25,7 @@ metadata:
 spec:
   selector:
     app: backend
-  type: LoadBalancer
   ports:
     - protocol: TCP
       port: 3001
       targetPort: 3001
-      nodePort: 30001

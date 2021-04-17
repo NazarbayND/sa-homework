@@ -14,12 +14,12 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: nursultannd/frontend:2
+          image: nursultannd/frontend:3
           ports:
             - containerPort: 3000
           env:
             - name: REACT_APP_API_URL
-              value: "http://minikube_ip:30001"
+              value: "http://api.sa.homework"
 ---
 apiVersion: v1
 kind: Service
@@ -28,9 +28,7 @@ metadata:
 spec:
   selector:
     app: frontend
-  type: LoadBalancer
   ports:
     - protocol: TCP
       port: 3000
       targetPort: 3000
-      nodePort: 30000
